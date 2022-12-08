@@ -1,4 +1,4 @@
-# [Arduino](./README.md) &middot; [![GitHub license]](./LICENSE) ![Test Action]
+# [Scrapface](./README.md) &middot; [![GitHub license]](./LICENSE) ![Test Action]
 
 <!-- Table of Contents -->
 
