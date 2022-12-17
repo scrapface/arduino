@@ -11,4 +11,4 @@ repos:
     rev: v1.3.4
     hooks:
       - id: clang-format
-        args: [ --style=Google, -i ]
+        args: [ "--style={BasedOnStyle: Google, ColumnLimit: 120}", -i ]
