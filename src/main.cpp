@@ -1,22 +1,24 @@
-/*
- * This is a generated example file that is supposed to be modified.
- */
-
 #include <Arduino.h>
+#include <Servo.h>
+#include <SoftwareSerial.h>
 
 #include "config.h"
 
+// Setup devices.
+SoftwareSerial bluetoothSerial(Config::BLUETOOTH_RX_PIN, Config::BLUETOOTH_TX_PIN);
+Servo servo;
+
 void setup() {
-  // Set the LED state.
-  pinMode(LED_BUILTIN, OUTPUT);
+  // Initialize serial.
+  Serial.begin(9600);
+  bluetoothSerial.begin(9600);
+
+  // Initialize servo.
+  servo.attach(Config::SERVO_PIN);
 }
 
 void loop() {
-  // Turn on the LED.
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(Config::delay);
-
-  // Turn off the LED.
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(Config::delay);
+  if (bluetoothSerial.available()) {
+    Serial.println(bluetoothSerial.read());
+  }
 }
